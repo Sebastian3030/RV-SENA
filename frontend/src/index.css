@@ -1,0 +1,81 @@
+@import 'tailwindcss';
+
+/* Tokens del sistema de diseño (ver sección "Sistema de diseño" de la documentación) */
+@theme {
+  --font-sans: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
+
+  --color-brand-50: #f0f9e8;
+  --color-brand-100: #dcf1c9;
+  --color-brand-200: #bce59a;
+  --color-brand-400: #5cc41f;
+  --color-brand-500: #39a900;
+  --color-brand-600: #2e8a00;
+  --color-brand-700: #246b00;
+  --color-brand-900: #143d00;
+
+  --color-accent-50: #fff4e8;
+  --color-accent-100: #ffe3c4;
+  --color-accent-500: #ff7a00;
+  --color-accent-600: #e06a00;
+
+  --color-ink: #0f172a;
+  --color-muted: #64748b;
+  --color-canvas: #f7f8f5;
+  --color-line: #e5e7eb;
+
+  --radius-card: 20px;
+  --shadow-soft: 0 1px 2px rgb(15 23 42 / 0.04), 0 8px 24px -8px rgb(15 23 42 / 0.08);
+  --shadow-lift: 0 2px 4px rgb(15 23 42 / 0.04), 0 20px 40px -12px rgb(15 23 42 / 0.18);
+
+  --animate-fade-in: fade-in 0.25s ease-out both;
+  --animate-slide-in: slide-in 0.25s ease-out both;
+  --animate-pop: pop 0.3s ease-out both;
+
+  @keyframes fade-in {
+    from { opacity: 0; transform: translateY(6px); }
+    to { opacity: 1; transform: none; }
+  }
+  @keyframes slide-in {
+    from { transform: translateX(100%); }
+    to { transform: none; }
+  }
+  @keyframes pop {
+    0% { transform: scale(1); }
+    40% { transform: scale(1.25); }
+    100% { transform: scale(1); }
+  }
+}
+
+@layer base {
+  html {
+    -webkit-tap-highlight-color: transparent;
+  }
+  body {
+    @apply bg-canvas font-sans text-ink antialiased;
+  }
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-brand-500;
+  }
+}
+
+@layer components {
+  .container-app {
+    @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+  .card {
+    @apply rounded-[var(--radius-card)] border border-line bg-white shadow-[var(--shadow-soft)];
+  }
+  .label {
+    @apply mb-1.5 block text-sm font-semibold text-ink;
+  }
+  .field {
+    @apply w-full rounded-xl border border-line bg-white px-4 py-2.5 text-[15px] text-ink placeholder:text-muted/70 transition focus:border-brand-500 focus:ring-4 focus:ring-brand-500/15 focus:outline-none disabled:bg-slate-50;
+  }
+  .field-error {
+    @apply border-red-400 focus:border-red-500 focus:ring-red-500/15;
+  }
+}
+
+/* Barra de desplazamiento horizontal discreta para chips de categorías */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { scrollbar-width: none; }

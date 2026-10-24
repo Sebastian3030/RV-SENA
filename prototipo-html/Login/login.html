@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>RV SENA - Login</title>
+
+    <link rel="stylesheet" href="login.css">
+</head>
+
+<body>
+
+    <main class="contenedor">
+
+        <section class="login">
+
+            <!-- Logo -->
+            <div class="logo">
+                <img src="img/logo.png" alt="Logo RV SENA">
+            </div>
+
+            <!-- Bienvenida -->
+            <div class="bienvenida">
+
+                <h1>RV SENA</h1>
+
+                <p>
+                    Bienvenido, ingresa tu<br>
+                    usuario
+                </p>
+
+            </div>
+
+            <!-- Formulario -->
+            <form id="formularioLogin">
+
+                <input
+                    type="text"
+                    id="usuario"
+                    placeholder="Usuario"
+                >
+
+                <input
+                    type="password"
+                    id="contrasena"
+                    placeholder="Contraseña"
+                >
+                <a href="#">
+
+                    <button type="submit">
+                        Entrar
+                    </button>
+                </a>
+
+            </form>
+
+            <!-- Mensaje -->
+            <p id="mensaje"></p>
+
+            <!-- Registro -->
+            <div class="registro">
+
+                <span>No estas registrado</span>
+
+                <a href="/Register/register.html">
+                    has clic aqui.
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <script src="login.js"></script>
+
+</body>
+
+</html>

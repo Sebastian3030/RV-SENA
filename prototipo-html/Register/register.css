@@ -1,0 +1,130 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Georgia', 'Times New Roman', serif; /* Tipografía estilo clásico como en la captura */
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Contenedor principal con fondo de la mesa de madera - CENTRADO */
+.background-container {
+  width: 100%;
+  height: 100%;
+  background: url('https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
+  display: flex;
+  align-items: center;
+  justify-content: center; /* <-- Cambiado a center para que quede en la mitad */
+}
+
+/* Tarjeta oscura semitransparente con bordes redondeados */
+.register-card {
+  width: 380px;
+  background: rgba(15, 15, 15, 0.75);
+  border-radius: 20px;
+  padding: 40px 30px 30px 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+}
+
+/* Caja gris clara superior que contiene el logo y títulos */
+.card-header {
+  width: 100%;
+  background: #e6e6e6;
+  border-radius: 18px;
+  padding: 25px 15px 15px 15px;
+  text-align: center;
+  position: relative;
+  margin-bottom: 30px;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Logo incrustado en la parte superior central */
+.logo-container {
+  position: absolute;
+  top: -25px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50px;
+  height: 50px;
+  background: #ffffff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2px;
+}
+
+.logo {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.card-header h2 {
+  color: #4a4a4a;
+  font-size: 1.6rem;
+  font-weight: normal;
+  margin-top: 5px;
+  letter-spacing: 1px;
+}
+
+.card-header p {
+  color: #555555;
+  font-size: 1.1rem;
+  margin-top: 10px;
+}
+
+/* Formulario e Inputs */
+.register-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 12px 20px;
+  border-radius: 25px;
+  border: none;
+  outline: none;
+  font-size: 1.05rem;
+  color: #555;
+  background-color: #ffffff;
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.input-group input::placeholder {
+  color: #888;
+  font-family: inherit;
+}
+
+/* Botón verde redondeado */
+.btn-submit {
+  width: 100%;
+  padding: 12px;
+  border-radius: 25px;
+  border: none;
+  background-color: #45b000;
+  color: #ffffff;
+  font-size: 1.1rem;
+  cursor: pointer;
+  margin-top: 5px;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.btn-submit:hover {
+  background-color: #3d9b00;
+}
+
+.btn-submit:active {
+  transform: scale(0.98);
+}
