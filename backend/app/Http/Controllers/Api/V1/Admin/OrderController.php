@@ -27,8 +27,8 @@ class OrderController extends Controller
             ->when($request->filled('date'), fn ($q) => $q->whereDate('created_at', $request->input('date')))
             ->when($request->filled('search'), function ($q) use ($request) {
                 $term = '%'.$request->input('search').'%';
-                $q->where(fn ($w) => $w->where('code', 'like', $term)
-                    ->orWhereHas('user', fn ($u) => $u->where('name', 'like', $term)));
+                $q->where(fn ($w) => $w->whereLike('code', $term)
+                    ->orWhereHas('user', fn ($u) => $u->whereLike('name', $term)));
             })
             ->latest()
             ->paginate(15);

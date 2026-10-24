@@ -49,6 +49,25 @@ DB_PASSWORD=
 
 Crea la base `rv_sena` en phpMyAdmin y ejecuta `php artisan migrate:fresh --seed`.
 
+### Usar PostgreSQL
+
+1. Activa la extensión en tu `php.ini` quitando el `;` de `extension=pdo_pgsql` (en XAMPP: `C:\xampp\php\php.ini`). Compruébalo con `php -m`.
+2. Crea la base `rv_sena` en pgAdmin.
+3. En `backend/.env`:
+
+```env
+DB_CONNECTION=pgsql
+DB_HOST=127.0.0.1
+DB_PORT=5432
+DB_DATABASE=rv_sena
+DB_USERNAME=postgres
+DB_PASSWORD=tu_contraseña
+```
+
+4. Ejecuta `php artisan migrate:fresh --seed`.
+
+Las búsquedas usan `whereLike`, que no distingue mayúsculas en ningún motor (en PostgreSQL se traduce a `ILIKE`).
+
 ## Cuentas de prueba
 
 Contraseña de todas: `rvsena123`

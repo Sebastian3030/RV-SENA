@@ -30,7 +30,7 @@ class ProductController extends Controller
             ->withFavoriteFlag($request->user('sanctum'))
             ->when($request->filled('search'), function ($q) use ($request) {
                 $term = '%'.$request->string('search')->trim().'%';
-                $q->where(fn ($w) => $w->where('name', 'like', $term)->orWhere('description', 'like', $term));
+                $q->where(fn ($w) => $w->whereLike('name', $term)->orWhereLike('description', $term));
             })
             ->when($request->filled('category'), fn ($q) => $q->whereHas(
                 'category', fn ($c) => $c->where('slug', $request->input('category'))

@@ -19,7 +19,7 @@ class ProductController extends Controller
         $products = Product::query()
             ->with('category')
             ->withSoldCount()
-            ->when($request->filled('search'), fn ($q) => $q->where('name', 'like', '%'.$request->input('search').'%'))
+            ->when($request->filled('search'), fn ($q) => $q->whereLike('name', '%'.$request->input('search').'%'))
             ->when($request->filled('category_id'), fn ($q) => $q->where('category_id', $request->integer('category_id')))
             ->orderBy('category_id')
             ->orderBy('name')

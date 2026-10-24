@@ -19,7 +19,7 @@ class UserController extends Controller
             ->withCount('orders')
             ->when($request->filled('search'), function ($q) use ($request) {
                 $term = '%'.$request->input('search').'%';
-                $q->where(fn ($w) => $w->where('name', 'like', $term)->orWhere('email', 'like', $term));
+                $q->where(fn ($w) => $w->whereLike('name', $term)->orWhereLike('email', $term));
             })
             ->when($request->filled('role'), fn ($q) => $q->where('role', $request->input('role')))
             ->orderBy('name')
